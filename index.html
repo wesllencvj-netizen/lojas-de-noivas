@@ -13,10 +13,18 @@
   <main class="catalog">
     <span>Diretório</span>
     <h1>Lojas de Noivas</h1>
-    <a class="store" href="cia-das-noivas/">
+    <a class="store" href="cia-das-noivas/" data-store="cia-das-noivas" data-expires="2026-09-18T20:18:43Z">
       <div><h2>Cia das Noivas</h2><p>Santarém, Pará · Vestidos, ternos e acessórios</p></div>
       <b aria-hidden="true">↗</b>
     </a>
+    <p id="expired-message" hidden>Esta apresentação não está mais disponível.</p>
   </main>
+  <script>
+    const store = document.querySelector('[data-store="cia-das-noivas"]');
+    if (store && Date.now() >= Date.parse(store.dataset.expires)) {
+      store.remove();
+      document.querySelector('#expired-message').hidden = false;
+    }
+  </script>
 </body>
 </html>
